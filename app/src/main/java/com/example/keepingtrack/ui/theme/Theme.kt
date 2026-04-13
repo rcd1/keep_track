@@ -255,7 +255,7 @@ val unspecified_scheme = ColorFamily(
 fun KeepingTrackTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false, // Might be available but I don't want it.
     content: @Composable() () -> Unit
 ) {
   val colorScheme = when {

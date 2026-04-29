@@ -1,4 +1,4 @@
-package com.example.keepingtrack.ui.uiStates
+package com.example.keepingtrack.ui.login
 // Would you believe Ryan typed this?
 /**
  * Data class for the state of the login UI

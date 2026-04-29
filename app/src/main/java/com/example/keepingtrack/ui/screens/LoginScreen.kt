@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -64,73 +65,73 @@ fun LoginScreen() {
                     modifier = Modifier
                         .padding(vertical = 15.dp)
                     )
-                Icon(Icons.Default.Favorite, null)
+                Icon(Icons.Default.Favorite,
+                    null,
+                    tint = MaterialTheme.colorScheme.onPrimary)
             }
         },
         bottomBar = {}
-    ) { _ ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.primaryContainer),
-            verticalArrangement = Arrangement.SpaceEvenly,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            LoginFields()
-        }
+    ) { innerPadding ->
+        LoginFields(innerPadding)
     }
 }
 
 @Composable
-fun LoginFields() {
-        Column(
+fun LoginFields(innerPadding: PaddingValues) {
+//            Spacer(Modifier.fillMaxHeight(0.3f))
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(innerPadding)
+            .background(MaterialTheme.colorScheme.primaryContainer),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        // Username TextField
+        TextField(
+            value = "",
+            onValueChange = {},
+            label = { Text("Username", style = MaterialTheme.typography.labelLarge) },
+            singleLine = true,
+            trailingIcon = {
+                IconButton(
+                    onClick = {},
+                ) {
+                    Icon(Icons.Default.Clear, "Clear Username")
+                }
+            },
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Email,
+                imeAction = ImeAction.Next
+            ),
+            modifier = Modifier,
+        )
+        Spacer(Modifier.height(20.dp))
+        // Password TextField
+        TextField(
+            value = "",
+            onValueChange = {},
+            label = { Text("Password", style = MaterialTheme.typography.labelLarge) },
+            singleLine = true,
+            trailingIcon = {
+                IconButton(
+                    onClick = {},
+                ) {
+                    Icon(Icons.Default.Clear, "Clear Username")
+                }
+            },
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Password,
+                imeAction = ImeAction.Done
+            ),
+            modifier = Modifier,
+        )
+        Spacer(Modifier.height(30.dp))
+        Button(
+            onClick = {/*Need to give something the username and password*/ },
             modifier = Modifier
-                .fillMaxWidth(0.9f)
-                .fillMaxHeight(0.7f)
-                .background(MaterialTheme.colorScheme.primaryContainer),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Spacer(Modifier.fillMaxHeight(0.3f))
-            // Username TextField
-            TextField(
-                value = "",
-                onValueChange = {},
-                label = { Text("Username", style = MaterialTheme.typography.labelLarge) },
-                singleLine = true,
-                trailingIcon = {
-                    IconButton(
-                        onClick = {},
-                    ) {
-                        Icon(Icons.Default.Clear, "Clear Username")
-                    }
-                },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email, imeAction = ImeAction.Next),
-                modifier = Modifier,
-            )
-            Spacer(Modifier.height(20.dp))
-            // Password TextField
-            TextField(
-                value = "",
-                onValueChange = {},
-                label = { Text("Password", style = MaterialTheme.typography.labelLarge) },
-                singleLine = true,
-                trailingIcon = {
-                    IconButton(
-                        onClick = {},
-                    ) {
-                        Icon(Icons.Default.Clear, "Clear Username")
-                    }
-                },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password, imeAction = ImeAction.Done),
-                modifier = Modifier,
-            )
-            Spacer(Modifier.height(30.dp))
-            Button(
-                onClick = {/*Need to give something the username and password*/},
-                modifier = Modifier
-            ) {
-                Text("Login")
-            }
+            Text("Login")
+        }
     }
 }

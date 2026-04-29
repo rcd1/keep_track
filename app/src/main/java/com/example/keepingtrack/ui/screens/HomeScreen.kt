@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Edit
@@ -30,14 +32,21 @@ import com.example.keepingtrack.ui.theme.AppTypography
 @Preview
 @Composable
 fun HomeScreen() {
+
     Scaffold(
         modifier = Modifier,
         topBar = {HomeTopBar()},
         bottomBar = {
 
         }
-    ) {
+    ) {innerPadding -> // Wait this is awesome
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+        ) {
 
+        }
     }
 }
 
@@ -58,13 +67,13 @@ fun HomeTopBar() {
                 "Options",
                 tint = MaterialTheme.colorScheme.onPrimary)
         }
-        Text("4/15/2026",
+        Text("4/15/2026", //set this to change with date?
             style = AppTypography.headlineMedium,
             fontStyle = FontStyle.Italic,
             color = MaterialTheme.colorScheme.onPrimary
         )
         IconButton(
-            onClick = {}
+            onClick = {} //Should switch
         ) {
             Icon(Icons.Default.Edit,
                 "Edit Counters",

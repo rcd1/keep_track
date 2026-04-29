@@ -1,6 +1,5 @@
 package com.example.keepingtrack
 // Ryan typed a thing or two here.
-// April 14th, 2026
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost

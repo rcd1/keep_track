@@ -6,17 +6,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.keepingtrack.ui.home.HomeScreen
-import com.example.keepingtrack.ui.login.LoginScreen
 
 /**
  * Small enum For screen names the app can navigate.
  * @param title String Resource ID, will be used for Routes.
  */
-enum class AppScreen(@StringRes val title:Int) {
+enum class AppScreen(@StringRes val title: Int) {
     Home(R.string.home),
     AddCounter(R.string.add_counter),
-
-
 }
 
 /**
